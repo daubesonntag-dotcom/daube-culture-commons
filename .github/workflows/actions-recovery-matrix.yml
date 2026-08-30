@@ -1,0 +1,39 @@
+name: D'AUBE Actions Recovery Matrix
+
+on:
+  push:
+    branches:
+      - ci/actions-recovery-20260830
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: actions-recovery-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  github_hosted_scheduler:
+    name: github-hosted scheduler canary
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Verify GitHub-hosted execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'DAUBE_GITHUB_HOSTED=PASS\n'
+          printf 'repository=%s\nref=%s\nsha=%s\nrun_id=%s\n' "$GITHUB_REPOSITORY" "$GITHUB_REF" "$GITHUB_SHA" "$GITHUB_RUN_ID"
+
+  self_hosted_fallback:
+    name: self-hosted fallback canary
+    runs-on: self-hosted
+    timeout-minutes: 3
+    steps:
+      - name: Verify D'AUBE-controlled execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'DAUBE_SELF_HOSTED=PASS\n'
+          printf 'repository=%s\nref=%s\nsha=%s\nrun_id=%s\nrunner=%s\n' "$GITHUB_REPOSITORY" "$GITHUB_REF" "$GITHUB_SHA" "$GITHUB_RUN_ID" "$RUNNER_NAME"
