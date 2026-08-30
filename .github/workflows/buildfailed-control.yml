@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - ci/buildfailed-control-20260830
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
