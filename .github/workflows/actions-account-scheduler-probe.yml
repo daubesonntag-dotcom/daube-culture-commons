@@ -1,0 +1,16 @@
+name: D'AUBE Actions Account Scheduler Probe
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: printf 'DAUBE_INDEPENDENT_PUBLIC_RUNNER=PASS\n'
