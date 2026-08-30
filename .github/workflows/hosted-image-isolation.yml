@@ -1,0 +1,35 @@
+name: D'AUBE Hosted Image Isolation
+
+on:
+  push:
+    branches:
+      - ci/hosted-image-isolation-20260830
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  latest:
+    name: ubuntu-latest canary
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Execute latest image probe
+        run: printf 'DAUBE_HOSTED_IMAGE=ubuntu-latest PASS\n'
+
+  ubuntu_2204:
+    name: ubuntu-22.04 canary
+    runs-on: ubuntu-22.04
+    timeout-minutes: 2
+    steps:
+      - name: Execute 22.04 image probe
+        run: printf 'DAUBE_HOSTED_IMAGE=ubuntu-22.04 PASS\n'
+
+  ubuntu_2404:
+    name: ubuntu-24.04 canary
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Execute 24.04 image probe
+        run: printf 'DAUBE_HOSTED_IMAGE=ubuntu-24.04 PASS\n'
