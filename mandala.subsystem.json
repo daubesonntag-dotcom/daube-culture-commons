@@ -1,0 +1,36 @@
+{
+  "id": "daube-culture-commons",
+  "self": {
+    "purpose": "Public cultural and community commons boundary for D’AUBE SONNTAG.",
+    "owner": "Culture Commons Owner",
+    "invariants": [
+      "Public commons material must remain intentionally public",
+      "Repository existence does not imply implementation or community traction",
+      "Rights and provenance remain explicit"
+    ],
+    "authorityBoundary": "May host public commons artifacts within approved scope; has no implicit commercial, production or Founder authority."
+  },
+  "mind": {
+    "mode": "none",
+    "inputs": [],
+    "decisionLogic": "No runtime decision engine is currently claimed."
+  },
+  "will": {
+    "goals": ["Provide a future governed public commons surface"],
+    "escalationPolicy": "Escalate rights, moderation, privacy, commercial or production-sensitive content."
+  },
+  "capabilities": ["public-commons-boundary"],
+  "execution": {
+    "implementations": [],
+    "runtimeBoundary": "Governance boundary only; no runtime implementation is claimed."
+  },
+  "evidence": {
+    "paths": ["mandala.subsystem.json"],
+    "claimPolicy": "This bootstrap manifest proves only the repository governance boundary. It does not prove implementation, users, community participation, production or commercial activity."
+  },
+  "shadow": {
+    "risks": ["An empty or foundation repository can be mistaken for implemented capability"],
+    "unknowns": ["Implementation scope", "Community participation"],
+    "blockers": ["No implementation evidence beyond this governance manifest"]
+  }
+}
