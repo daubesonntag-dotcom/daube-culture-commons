@@ -3,10 +3,11 @@ name: buildfailed-control
 on:
   push:
     branches:
-      - ci/buildfailed-control-20260830
+      - main
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
